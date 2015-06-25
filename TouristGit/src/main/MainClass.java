@@ -13,6 +13,7 @@ public class MainClass
 	public static void main(String[] args)
 	{
 		//Testiranje Ratomir
+		//Testiranje
 		new LoginForm();
 	}
 }
