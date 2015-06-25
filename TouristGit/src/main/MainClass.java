@@ -12,7 +12,6 @@ public class MainClass
 
 	public static void main(String[] args)
 	{
-		//Ratomir
 		new LoginForm();
 	}
 }
