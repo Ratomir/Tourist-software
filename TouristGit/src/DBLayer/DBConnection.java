@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
  * Klasa DB connectioni obezbjedjuje metodu za ucitavanje parametara za povezivanje na bazu.
  * Realizovana je i metoda za definisanje konekcije sa bazom.
  * 
- * @author Ratomir
+ * @author Jelena
  *
  */
 public class DBConnection
