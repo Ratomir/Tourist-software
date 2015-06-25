@@ -27,7 +27,7 @@ public class DBConnection
 	private int portNumber;
 	
     private static DBConnection instance;
-    
+    //Jelna
     public static DBConnection getInstance()
     {
     	if(instance==null)
