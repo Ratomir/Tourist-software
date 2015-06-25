@@ -19,7 +19,7 @@ public class XMLreader
 {	
 	private Localization localization = null;
 	/**
-	 * Metoda cita parametre
+	 * Metoda cita parametre iz xml fajla
 	 * 
 	 * @param application
 	 */
