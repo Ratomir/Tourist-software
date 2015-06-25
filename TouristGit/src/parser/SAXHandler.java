@@ -24,6 +24,9 @@ public class SAXHandler extends DefaultHandler
 		{
 			/*
 			 * Ovde èitamo atribute.
+			 
+			 *
+			 *
 			 */
 			
 			value = true;
