@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PutnikAranzman" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="59c36c8e-cab6-469a-94a5-01df2f97f954">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     ARANZMAN."AR_NAZIV" AS ARANZMAN_AR_NAZIV,
+     ARANZMAN."AR_DATUM_POLASKA" AS ARANZMAN_AR_DATUM_POLASKA,
+     PUTNIK."PU_IME_PUTNIKA" AS PUTNIK_PU_IME_PUTNIKA,
+     PUTNIK."PU_PREZIME_PUTNIKA" AS PUTNIK_PU_PREZIME_PUTNIKA,
+     ARANZMAN."AR_DESTINACIJE" AS ARANZMAN_AR_DESTINACIJE
+FROM
+     "pisg4"."ARANZMAN" ARANZMAN INNER JOIN "pisg4"."BIRA_ARANZMAN" BIRA_ARANZMAN ON ARANZMAN."PRA_DR_OZNAKA" = BIRA_ARANZMAN."PRA_DR_OZNAKA"
+     AND ARANZMAN."AR_SIFRA" = BIRA_ARANZMAN."AR_SIFRA"
+     AND ARANZMAN."PL_IDENT" = BIRA_ARANZMAN."PL_IDENT"
+     AND ARANZMAN."HO_SIFRA" = BIRA_ARANZMAN."HO_SIFRA"
+     AND ARANZMAN."TA_TIP" = BIRA_ARANZMAN."TA_TIP"
+     AND ARANZMAN."DR_OZNAKA" = BIRA_ARANZMAN."DR_OZNAKA"
+     INNER JOIN "pisg4"."PUTNIK" PUTNIK ON BIRA_ARANZMAN."PU_IDENTIFIKATOR" = PUTNIK."PU_IDENTIFIKATOR"]]>
+	</queryString>
+	<field name="PUTNIK_PU_IME_PUTNIKA" class="java.lang.String"/>
+	<field name="PUTNIK_PU_PREZIME_PUTNIKA" class="java.lang.String"/>
+	<field name="ARANZMAN_AR_NAZIV" class="java.lang.String"/>
+	<field name="ARANZMAN_AR_DATUM_POLASKA" class="java.sql.Timestamp"/>
+	<field name="ARANZMAN_AR_DESTINACIJE" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="179de254-6ff5-4e7f-bb4b-7d80f7a6495a"/>
+				<staticText>
+					<reportElement x="120" y="38" width="268" height="43" forecolor="#FFFFFF" uuid="dfa5a49e-e810-4dbf-ba23-6b6445f1fad9"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tourist software]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="413" y="56" width="162" height="25" forecolor="#FFFFFF" uuid="27a8d620-39d3-496d-9e94-67dd9e69bc6d"/>
+					<textElement textAlignment="Right">
+						<font size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Putnici i aranžmani]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="13" width="100" height="68" uuid="a5d476f2-9964-48ed-a685-f0613ae0a1e3"/>
+					<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="92ba90cd-525d-43ad-9208-181e01d2ba90"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="72" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="406fd0ab-a888-4dee-9dd0-967ddd0a8a72"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="72" y="0" width="87" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e1a30d26-7092-4f75-9f75-0cdb26e37ead"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREZIME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="159" y="0" width="99" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ba515af0-680b-4b37-bca5-7b756693a432"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ARANŽMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="258" y="0" width="135" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="66c4c6d5-5db1-4c0c-8cb7-4ba739053bc6"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATUM POLASKA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="393" y="0" width="162" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="acb7e2cc-cf8a-4f3a-9cec-670ed814fd7e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESTINACIJE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="e46ea7b0-0d56-4d05-8435-48f3545ba615"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="72" height="20" uuid="37803a86-7206-4dce-af12-0188b148a911"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PUTNIK_PU_IME_PUTNIKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="72" y="0" width="87" height="20" uuid="d06254c5-2acc-4bd0-8458-dcd11349f6f4"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PUTNIK_PU_PREZIME_PUTNIKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="159" y="0" width="99" height="20" uuid="8a8f7749-fc81-4b66-b1ec-dcfdffc668bb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARANZMAN_AR_NAZIV}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="258" y="0" width="135" height="20" uuid="c10d8ac4-2f07-40cc-988a-184582dc16b5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARANZMAN_AR_DATUM_POLASKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="393" y="0" width="162" height="20" uuid="88fee366-8e67-4dc9-b9e3-c067b728c81e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARANZMAN_AR_DESTINACIJE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="d3e1d19f-2d0d-4aa0-8f7c-0c878a0c0c28"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Strana "+$V{PAGE_NUMBER}+" od"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="0ff9e414-da64-419b-9beb-8a264117dc36"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy   HH:mm:ss">
+				<reportElement x="0" y="4" width="100" height="13" uuid="4e85a7f9-7818-4d63-805d-a5344c6a0b39"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

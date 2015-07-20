@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="lib/javadocking.jar"/>
+	<classpathentry kind="lib" path="lib/Localization.jar"/>
+	<classpathentry kind="lib" path="lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="lib/DBConnection.jar"/>
+	<classpathentry kind="lib" path="lib/jcalendar.jar"/>
+	<classpathentry kind="lib" path="lib/report/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/report/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/report/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/report/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/report/DynamicJasper-5.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/report/groovy-all-2.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/report/iText-2.1.7.js2.jar"/>
+	<classpathentry kind="lib" path="lib/report/jasperreports-5.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/report/jdtcore-3.1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

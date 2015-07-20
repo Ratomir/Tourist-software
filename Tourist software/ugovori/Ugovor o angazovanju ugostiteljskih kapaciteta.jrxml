@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ugovor o angazovanju ugostiteljskih kapaciteta" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bbfdf0ef-a802-48f9-b620-6d21e9e85c03">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="43"/>
+	<parameter name="NAZIV AGENCIJE" class="java.lang.String"/>
+	<parameter name="NAZIV HOTELA" class="java.lang.String"/>
+	<parameter name="CIJENA PUN PANSION" class="java.lang.String"/>
+	<parameter name="CIJENA POLUPANSION" class="java.lang.String"/>
+	<parameter name="CIJENA SA DORUCKOM" class="java.lang.String"/>
+	<parameter name="NASELJENO MJESTO" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PRAVNO_LICE."PL_NAZIV" AS PRAVNO_LICE_PL_NAZIV,
+     HOTEL."HO_NAZIV" AS HOTEL_HO_NAZIV,
+     POSLOVNA_GODINA."PG_CIJENA_PUN_PANSION" AS POSLOVNA_GODINA_PG_CIJENA_PUN_PANSION,
+     POSLOVNA_GODINA."PG_CIJENA_POLU_PANSION" AS POSLOVNA_GODINA_PG_CIJENA_POLU_PANSION,
+     POSLOVNA_GODINA."PG_CIJENA_DORUCAK" AS POSLOVNA_GODINA_PG_CIJENA_DORUCAK,
+     POSLOVNA_GODINA."PG_GODISTE_POPUST" AS POSLOVNA_GODINA_PG_GODISTE_POPUST,
+     NASELJENO_MJESTO."NM_NAZIV" AS NASELJENO_MJESTO_NM_NAZIV
+FROM
+     "pisg4"."HOTEL" HOTEL INNER JOIN "pisg4"."POSLOVNA_GODINA" POSLOVNA_GODINA ON HOTEL."DR_OZNAKA" = POSLOVNA_GODINA."DR_OZNAKA"
+     AND HOTEL."HO_SIFRA" = POSLOVNA_GODINA."HO_SIFRA"
+     INNER JOIN "pisg4"."ARANZMAN" ARANZMAN ON HOTEL."HO_SIFRA" = ARANZMAN."HO_SIFRA"
+     INNER JOIN "pisg4"."PRAVNO_LICE" PRAVNO_LICE ON ARANZMAN."PRA_DR_OZNAKA" = PRAVNO_LICE."DR_OZNAKA"
+     AND PRAVNO_LICE."PL_IDENT" = ARANZMAN."PL_IDENT"
+     INNER JOIN "pisg4"."NASELJENO_MJESTO" NASELJENO_MJESTO ON PRAVNO_LICE."NM_IDENTIFIKATOR" = NASELJENO_MJESTO."NM_IDENTIFIKATOR"]]>
+	</queryString>
+	<field name="PRAVNO_LICE_PL_NAZIV" class="java.lang.String"/>
+	<field name="HOTEL_HO_NAZIV" class="java.lang.String"/>
+	<field name="POSLOVNA_GODINA_PG_CIJENA_PUN_PANSION" class="java.math.BigDecimal"/>
+	<field name="POSLOVNA_GODINA_PG_CIJENA_POLU_PANSION" class="java.math.BigDecimal"/>
+	<field name="POSLOVNA_GODINA_PG_CIJENA_DORUCAK" class="java.math.BigDecimal"/>
+	<field name="POSLOVNA_GODINA_PG_GODISTE_POPUST" class="java.math.BigDecimal"/>
+	<field name="NASELJENO_MJESTO_NM_NAZIV" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="765" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="89" width="555" height="17" uuid="0bd38e7e-c968-4cb8-b480-5f52b47ab858"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Zaključen dana ________________između turističke agencije ______________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="106" width="40" height="14" uuid="3600c340-0311-4f8b-bbb9-7d30d33a988c"/>
+				<text><![CDATA[(datum)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="106" width="80" height="14" uuid="3866d614-5821-4f67-b1f1-5d1153537474"/>
+				<text><![CDATA[(naziv agencije)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="555" height="37" uuid="389cff71-610a-48dd-b208-e93f26b8df08"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[(u daljem tekstu: Agencija) i Gospodarskog subjekta - hotela (u daljem tekstu: Ugostitelj),_________
+_________________________________________________________________________________
+
+
+____________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="43" uuid="45330b8f-18e8-4406-bfb5-b2f32e020718"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bookman Old Style" size="18" isBold="false"/>
+				</textElement>
+				<text><![CDATA[UGOVOR O ANGAŽOVANJU UGOSTITELJSKIH OBJEKATA
+(UGOVOR O ALOTMANU)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="157" width="555" height="14" uuid="2a95b140-98c5-442e-be66-4038217a0297"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[(naziv hotela)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="171" width="555" height="25" uuid="e5425d3f-a90d-491d-8c1b-3bd61c8c716e"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[I.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="196" width="555" height="49" uuid="41776b3a-b1d4-4e64-b05f-918c6771a9db"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ovim ugovorom obvezuje se Ugostitelj da stavi na raspolaganje Agenciji svoje smjestajne kapacitete
+i pruži ugostiteljske usluge licima koje uputi agencija. Na ime pruženih usluga Agencija će Ugostitelju
+platiti ugovorenu naknadu, a Ugostitelj će, pored pruženih usluga, Agenciji isplatiti ugovorenu proviziju.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="245" width="555" height="23" uuid="f7c36fe2-c7e3-466a-af33-3ba80a0d73c9"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[II.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="268" width="555" height="78" uuid="8a197f9b-5f6f-439d-ad2d-967c67e7315d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Za usluge iz tačke I. ovog ugovora cijena punog pansiona po osobi je _______________KM.
+Cijena polupansiona je ______________ KM.
+Cijena noćenja sa doručkom je ________________ KM.
+Agencija ne može licima koje uputi da koriste ugostiteljske usluge naplaćivati više od cijena koje su utvrđene ovim ugovorom.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="346" width="555" height="24" uuid="62f0181b-4ef4-4038-9f47-3336b68a9351"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[III.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="558" width="555" height="46" uuid="cdbfb193-0297-4daf-a17a-3e9e1a511cb2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sve eventualne sporove ugovorne strane će rješavati sporazumno, a ako u tome ne uspiju ugovaraju
+nadležnost suda u _______________________________________________________________.
+
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="502" width="555" height="33" uuid="ea2d0212-1973-4d0e-84d3-0ad28d328661"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Agencija će svakom osobi koje uputi Ugostitelju izdati pismenu ispravu koja će služit kao dokaz da je
+to osoba klijent Agencije.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="409" width="555" height="23" uuid="b2a99726-022e-41c4-8a95-1ffbd5f51a0d"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[IV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="714" width="555" height="51" uuid="645b00d5-0c0b-4027-a160-17893e8ae11d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[             UGOSTITELJ                                                                                              AGENCIJA
+
+_________________________                                                               _________________________
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="479" width="555" height="23" uuid="431b4bb1-bcbb-4acc-b165-dbe7d0e9a36c"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[V.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="627" width="555" height="19" uuid="91d54270-2149-4a86-b459-8caf067190bc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ugovor je načinjen u 2 istovjetna primjerka od kojih svaka od ugovornih strana zadržava po 1 primjerak.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="432" width="555" height="47" uuid="d8c56013-fcb7-4282-9e5f-72416b580ad0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Agencija je dužna da licima koje upućuje Ugostitelju zaračunava ugovorene cijene ugostiteljskih usluga
+ i obavještava Ugostitelja o toku popunjavanja smještajnih kapaciteta.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="535" width="555" height="23" uuid="86621b84-b577-4b75-9865-0b7c0e9ba161"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[VI.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="370" width="555" height="39" uuid="06ce64d7-5c30-4c19-99c0-2c3169229743"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ugostitelj je obvezan da licima koje uputi Agencija pruži ugostiteljske usluge, kao i licima sa kojima je
+neposredno zaključio ugovor o ugostiteljskim uslugama.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="604" width="555" height="23" uuid="bf1701b5-593d-4736-a975-0d179c2e67da"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[VII.]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="92" y="86" width="100" height="20" uuid="b50644c1-5f51-4e96-bba7-f664239c74af"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="348" y="88" width="207" height="20" uuid="6be74964-0eea-4cad-90ce-4a2fd3084cea"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NAZIV AGENCIJE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="136" width="555" height="20" uuid="0f7556b8-67b0-489a-89c9-cf8080e93bfe"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NAZIV HOTELA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="267" width="100" height="20" uuid="28d7411d-e155-4462-a6c5-3ad1a16324ae"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CIJENA PUN PANSION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="284" width="93" height="18" uuid="043ea87f-f885-44da-861b-6ff13d230242"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CIJENA POLUPANSION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="179" y="298" width="100" height="20" uuid="63579e61-45aa-4d5e-b0f6-1eb2b5e9752d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CIJENA SA DORUCKOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="571" width="428" height="20" uuid="f71ca2c9-7eaf-45a9-a486-a85856c363f3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NASELJENO MJESTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="13" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Ugovor o putovanju" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11dcc96a-a591-438c-9035-0d729ff8e93c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NAZIV" class="java.lang.String"/>
+	<parameter name="IME" class="java.lang.String"/>
+	<parameter name="PREZIME" class="java.lang.String"/>
+	<parameter name="DESTINACIJE" class="java.lang.String"/>
+	<parameter name="IZNOS" class="java.lang.String"/>
+	<parameter name="DATUM POLASKA" class="java.lang.String"/>
+	<parameter name="PERIOD TRAJANJA" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PRAVNO_LICE."PL_NAZIV" AS PRAVNO_LICE_PL_NAZIV,
+     PUTNIK."PU_IME_PUTNIKA" AS PUTNIK_PU_IME_PUTNIKA,
+     PUTNIK."PU_PREZIME_PUTNIKA" AS PUTNIK_PU_PREZIME_PUTNIKA,
+     PUTNIK."PU_ADRESA" AS PUTNIK_PU_ADRESA,
+     ARANZMAN."AR_DATUM_POLASKA" AS ARANZMAN_AR_DATUM_POLASKA,
+     ARANZMAN."AR_CIJENA" AS ARANZMAN_AR_CIJENA,
+     ARANZMAN."AR_DESTINACIJE" AS ARANZMAN_AR_DESTINACIJE,
+     PRAVNO_LICE."NM_IDENTIFIKATOR" AS PRAVNO_LICE_NM_IDENTIFIKATOR,
+     ARANZMAN."AR_PERIOD_TRAJANJA" AS ARANZMAN_AR_PERIOD_TRAJANJA
+FROM
+     "pisg4"."PRAVNO_LICE" PRAVNO_LICE INNER JOIN "pisg4"."ARANZMAN" ARANZMAN ON PRAVNO_LICE."DR_OZNAKA" = ARANZMAN."PRA_DR_OZNAKA"
+     AND PRAVNO_LICE."PL_IDENT" = ARANZMAN."PL_IDENT"
+     INNER JOIN "pisg4"."BIRA_ARANZMAN" BIRA_ARANZMAN ON ARANZMAN."PRA_DR_OZNAKA" = BIRA_ARANZMAN."PRA_DR_OZNAKA"
+     AND ARANZMAN."AR_SIFRA" = BIRA_ARANZMAN."AR_SIFRA"
+     AND ARANZMAN."PL_IDENT" = BIRA_ARANZMAN."PL_IDENT"
+     AND ARANZMAN."HO_SIFRA" = BIRA_ARANZMAN."HO_SIFRA"
+     AND ARANZMAN."TA_TIP" = BIRA_ARANZMAN."TA_TIP"
+     AND ARANZMAN."DR_OZNAKA" = BIRA_ARANZMAN."DR_OZNAKA"
+     INNER JOIN "pisg4"."PUTNIK" PUTNIK ON BIRA_ARANZMAN."PU_IDENTIFIKATOR" = PUTNIK."PU_IDENTIFIKATOR"]]>
+	</queryString>
+	<field name="PRAVNO_LICE_PL_NAZIV" class="java.lang.String"/>
+	<field name="PUTNIK_PU_IME_PUTNIKA" class="java.lang.String"/>
+	<field name="PUTNIK_PU_PREZIME_PUTNIKA" class="java.lang.String"/>
+	<field name="PUTNIK_PU_ADRESA" class="java.lang.String"/>
+	<field name="ARANZMAN_AR_DATUM_POLASKA" class="java.sql.Timestamp"/>
+	<field name="ARANZMAN_AR_CIJENA" class="java.math.BigDecimal"/>
+	<field name="ARANZMAN_AR_DESTINACIJE" class="java.lang.String"/>
+	<field name="PRAVNO_LICE_NM_IDENTIFIKATOR" class="java.lang.Integer"/>
+	<field name="ARANZMAN_AR_PERIOD_TRAJANJA" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="91" y="0" width="424" height="34" uuid="8343feeb-1be4-4bac-882d-63d0dafda284"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UGOVOR O ORGANIZOVANJU PUTOVANJA
+]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="622" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="584" height="97" uuid="202fb1bb-faf0-4fa5-908d-f7f8d9bf5332"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[
+Zaključen dana _________________ između ______________________________________________
+				 		             (naziv turističke agencije)
+(u daljem tekstu: Organizator putovanja)  i _________________________________________________
+ 							  (ime i prezime )
+(u daljem tekstu: Putnik).
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="112" width="572" height="78" uuid="f94deb0e-5e00-4789-943f-5a8eb1a85f67"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Predmet ovog ugovora je organizovanje putovanja u _________________________________________
+___________________________________________________________________________________
+i obavezu Organizatora putovanja da Putniku pribavi skup usluga koje se sastoje od transporta,boravka i
+drugih usluga koje su sa njima povezane, a Putnik se obavezuje da na ime naknade za obavljene usluge
+Organizatoru plati ukupnu ugovorenu cijenu.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="87" width="100" height="27" uuid="700c9641-ff97-4726-b5cf-b648a0aac2fd"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="225" width="572" height="36" uuid="9f1bd4c5-05b3-4933-a7b7-e6fae1247545"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Za organizovanje i realizovanje putovanja Putnik je dužan Organizatoru putovanja isplatiti novčani iznos
+od__________KM  do ________________________________________________.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="202" width="100" height="23" uuid="f4387839-c120-4dc1-a9af-ca7567a3641d"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[II]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="284" width="572" height="64" uuid="0ebf2b09-fba6-439a-9783-20475576d259"/>
+				<textElement textAlignment="Justified">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Putnik je obavezan da:
+- plati ugovorenu cijenu u skladu sa tačkom II. ovog ugovora;
+- blagovremeno dostavi sve podatke potrebne za organizovanje putovanja, a posebno one podatke koje
+  se odnose na pribavljanje prevoznih sredstava, rezervaciju i putne isprave.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="261" width="100" height="23" uuid="ca31d253-7fd0-4447-9c91-cdfb2859a1a6"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[III]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="348" width="100" height="23" uuid="af8f4960-d4b0-41fd-99b8-ff9ca40e89c5"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="371" width="595" height="77" uuid="81b05cf3-1061-48d2-9164-2318dbb76db9"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Organizator putovanja je obavezan da:
+- pruži Putniku usluge iz tačke I. ovog ugovora, saglasno poslovnim običajima iz oblasti turizma;
+- obavijesti Putnika o uslovima boravka i kvalitetu prevoznih sredstava, te posebnim uslugama ;
+- čuva kao poslovnu tajnu podatke o Putniku, izuzev ako to ne odobri lično Putnik ili na zahtjev nadležnih
+  organa, u skladu sa zakonom.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="526" width="100" height="23" uuid="5c69d8dc-27d3-47c1-86a3-0d2ff9715dc7"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VII]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="549" width="572" height="20" uuid="5f103d65-9359-40cd-b6e0-eb11da2ec355"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ovaj ugovor se zaključuje na period  od_______________________dana.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="575" width="100" height="23" uuid="09999818-fb33-4d35-8c5f-fa218195b469"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VIII]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="598" width="572" height="21" uuid="e6037c14-3f55-49be-aefa-f0ccb3731cc4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ugovor je načinjen u 2 istovjetna primjerka od kojih svaka od ugovornih strana zadržava po 1 primjerak.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="448" width="100" height="23" uuid="2f5b616c-635a-492c-b128-f67544e8a476"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="471" width="572" height="55" uuid="90f8960f-a190-459f-b767-d58681fff036"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Putnik može odrediti da druga osoba umjesto njega koristi ugovorene usluge uz uslov da i ona ispunjava
+sve zahtjeve predviđene za putovanje i da naknadi eventualne troškove prouzrokovane zamjenom.  Kao
+blagovremeni odustanak za Putnika je rok od 5 dana.
+]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="102" y="13" width="133" height="26" uuid="4e7ed4cb-2611-4379-a7c6-92a3891b52e6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="13" width="297" height="20" uuid="2139e8ef-8de6-4b42-8a62-0b93845b1cfa"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NAZIV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="46" width="100" height="19" uuid="96e5f720-177c-4566-b153-450bc395ac25"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="46" width="100" height="20" uuid="41fb2a07-9e06-41ee-8688-f3d858049f23"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PREZIME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="128" width="570" height="20" uuid="6f42f654-6c2f-4717-9ce5-68ab71a44e1e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DESTINACIJE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="21" y="241" width="100" height="20" uuid="89b77ef0-bb4d-46bf-a7fa-66ed478bf95f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IZNOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="241" width="309" height="20" uuid="6eda70c9-b38a-44e7-8923-1581bd2ccfac"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DATUM POLASKA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="243" y="549" width="100" height="20" uuid="98b8b6f8-4292-4dfb-87f8-cdd92f9df68d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PERIOD TRAJANJA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="11" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="584" height="50" uuid="5cad9f8a-8531-4478-8142-64f252d1ef6a"/>
+				<text><![CDATA[PUTNIK 										ORGANIZATOR PUTOVANJA
+
+___________________ 								__________________________
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="12" splitType="Stretch"/>
+	</summary>
+</jasperReport>

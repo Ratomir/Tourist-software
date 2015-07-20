@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0088064a-e367-44ae-be6d-48f2367f5299">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     KORISNICI."KO_ID" AS KORISNICI_KO_ID,
+     KORISNICI."KO_IME" AS KORISNICI_KO_IME,
+     KORISNICI."KO_SIFRA_KORISNIKA" AS KORISNICI_KO_SIFRA_KORISNIKA,
+     KORISNICI."KO_NIVO_PRISTUPA" AS KORISNICI_KO_NIVO_PRISTUPA
+FROM
+     "pisg4"."KORISNICI" KORISNICI]]>
+	</queryString>
+	<field name="KORISNICI_KO_ID" class="java.lang.Integer"/>
+	<field name="KORISNICI_KO_IME" class="java.lang.String"/>
+	<field name="KORISNICI_KO_SIFRA_KORISNIKA" class="java.lang.String"/>
+	<field name="KORISNICI_KO_NIVO_PRISTUPA" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="316037ed-60fa-4a98-b8a7-d15ae331bd5f"/>
+				<staticText>
+					<reportElement x="136" y="34" width="275" height="54" forecolor="#FFFFFF" uuid="721eddda-f189-4f3b-aff3-c5ea31e2c0c9"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tourist Software]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="417" y="63" width="158" height="25" forecolor="#FFFFFF" uuid="aa703481-b0e4-41e0-b16e-03d9853f67ed"/>
+					<textElement textAlignment="Right">
+						<font size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Korisnici
+]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="10" width="116" height="78" uuid="50a17871-c819-4d97-995b-e11d471bc667"/>
+					<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="3"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="33b4c44e-4271-4a07-889c-47cbe60c493f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="55" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b91d5f9a-3bfd-4340-9539-d217f3557bc1"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="55" y="0" width="109" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="be550cec-e991-4fd6-927b-2543df5bf34f"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IME ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="164" y="0" width="268" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1499249d-a9dc-419f-9e87-d849a346a4b6"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ŠIFRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="432" y="0" width="123" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6e670c0c-349f-4760-bdcf-3a1d1f81a0ec"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIVO PRISTUPA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="712cdc44-86ab-486e-8a54-0d9df74fb10b"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="55" height="20" uuid="71c0cbee-27ab-47d9-8bf8-fd101d720cce"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KORISNICI_KO_ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="55" y="0" width="109" height="20" uuid="9a8f4c0a-6fd1-44d2-8cfc-88ea9977a22a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KORISNICI_KO_IME}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="164" y="0" width="268" height="20" uuid="acf4967f-934d-432e-ba71-8bb652af2e12"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KORISNICI_KO_SIFRA_KORISNIKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="432" y="0" width="123" height="20" uuid="1bcbfb20-968e-4b0c-b318-094e261cfab9"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{KORISNICI_KO_NIVO_PRISTUPA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="16">
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="512" y="0" width="40" height="13" backcolor="#FFFFFF" uuid="c0efeefe-6566-4cf9-a960-f395c7005a94"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy  HH:mm:ss">
+				<reportElement x="6" y="0" width="97" height="13" backcolor="#E6E6E6" uuid="974957fc-d496-49aa-a405-70a9d2f396f7"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="336" y="0" width="176" height="13" backcolor="#FFFFFF" uuid="86cb28e7-163e-4a1b-b050-fd758b6ba159"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Strana "+$V{PAGE_NUMBER}+" od"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

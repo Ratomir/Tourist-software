@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="soba" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="95f95e05-b3a7-48ea-859c-319cc96b86c5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     SOBA."TS_TIP_SOBE" AS SOBA_TS_TIP_SOBE,
+     SOBA."DR_OZNAKA" AS SOBA_DR_OZNAKA,
+     SOBA."HO_SIFRA" AS SOBA_HO_SIFRA,
+     SOBA."SPRAT" AS SOBA_SPRAT,
+     SOBA."SO_BROJ_SOBE" AS SOBA_SO_BROJ_SOBE
+FROM
+     "pisg4"."SOBA" SOBA]]>
+	</queryString>
+	<field name="SOBA_TS_TIP_SOBE" class="java.lang.String"/>
+	<field name="SOBA_DR_OZNAKA" class="java.lang.String"/>
+	<field name="SOBA_HO_SIFRA" class="java.lang.Integer"/>
+	<field name="SOBA_SPRAT" class="java.math.BigDecimal"/>
+	<field name="SOBA_SO_BROJ_SOBE" class="java.lang.Short"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="08bfcd96-6ae0-4bec-b8a6-b30417662da9"/>
+				<staticText>
+					<reportElement x="131" y="39" width="271" height="43" forecolor="#FFFFFF" uuid="5d7666cc-aae2-4c84-aa74-9c391869aaa7"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tourist software]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="525" y="57" width="50" height="25" forecolor="#FFFFFF" uuid="bffd7cef-baab-49e2-916d-e0f6b7b81379"/>
+					<textElement textAlignment="Right">
+						<font size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Soba]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="10" width="90" height="72" uuid="9dfd61d2-797c-45ed-9cdb-17f2e8c36840"/>
+					<imageExpression><![CDATA["logo.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="10"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3b6f9562-7808-45a8-955e-01b5cb6cd740"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="acf6c9ed-ec46-4662-8cfd-9d1845f37fd8"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1d85ea09-b5d8-4a4b-bdd5-2eb7c0c0d0ad"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DRŽAVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5274ee61-9006-4714-8b78-97bd5f2fc0be"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HOTEL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="87e5f9b8-0c20-4317-a383-14e739b99c4f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SPRAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="afe5d456-b2b8-4091-ad79-565f3819420d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BROJ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="72c3b84e-b046-4db5-83e9-bdc770d62154"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="111" height="20" uuid="350610f6-362c-4e17-8b49-0ba95555cfc0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOBA_TS_TIP_SOBE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="111" y="0" width="111" height="20" uuid="01470d6d-7acd-4990-a6ae-bd832536909c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOBA_DR_OZNAKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="222" y="0" width="111" height="20" uuid="65d5b6e6-b701-4710-be62-e7115ed20016"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOBA_HO_SIFRA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="333" y="0" width="111" height="20" uuid="fb4336f0-b3ba-430f-a76d-ad7fbdf20406"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOBA_SPRAT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="444" y="0" width="111" height="20" uuid="f669ee65-4855-4e00-9753-bcd468e83a2b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SOBA_SO_BROJ_SOBE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="561c03be-24a9-45ee-b5e5-34c53e92b05e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Strana "+$V{PAGE_NUMBER}+" od"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="7495103a-8528-4421-ba5d-5e9c23bffa38"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy   HH:mm:ss">
+				<reportElement x="0" y="4" width="100" height="13" uuid="4df8732c-15b0-4db0-9f64-ddffda8a21b2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
